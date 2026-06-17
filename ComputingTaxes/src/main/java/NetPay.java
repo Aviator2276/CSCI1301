@@ -26,38 +26,40 @@
 import java.util.Scanner;
 
 public class NetPay {
-    int hoursPerWeek;
-    double grossPay;
-    double netPay;
 
-    double FEDERAL_TAX_PERCENT = 10.00;
-    double STATE_TAX_PERCENT = 4.5;
-    double SS_PERCENT = 6.2;
-    double MEDICARE_PERCENT = 1.45;
-    double PAY_PER_HOUR = 7.25;
+  int hoursPerWeek;
+  double grossPay;
+  double netPay;
 
-    public void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+  double FEDERAL_TAX_PERCENT = 10.00;
+  double STATE_TAX_PERCENT = 4.5;
+  double SS_PERCENT = 6.2;
+  double MEDICARE_PERCENT = 1.45;
+  double PAY_PER_HOUR = 7.25;
 
-        System.out.print("Hours per Week:\t\t");
-        hoursPerWeek = input.nextInt();
-        input.close();
+  public void main(String[] args) {
+    Scanner input = new Scanner(System.in);
 
-        grossPay = hoursPerWeek * PAY_PER_HOUR;
+    System.out.print("Hours per Week:\t\t");
+    hoursPerWeek = input.nextInt();
+    input.close();
 
-        double federalDeduction = (FEDERAL_TAX_PERCENT / 100) * grossPay;
-        double stateDeduction = (STATE_TAX_PERCENT / 100) * grossPay;
-        double ssDeduction = (SS_PERCENT / 100) * grossPay;
-        double medicareDeduction = (MEDICARE_PERCENT / 100) * grossPay;
-        double deductions = federalDeduction + stateDeduction + ssDeduction + medicareDeduction;
+    grossPay = hoursPerWeek * PAY_PER_HOUR;
 
-        netPay = grossPay - deductions;
+    double federalDeduction = (FEDERAL_TAX_PERCENT / 100) * grossPay;
+    double stateDeduction = (STATE_TAX_PERCENT / 100) * grossPay;
+    double ssDeduction = (SS_PERCENT / 100) * grossPay;
+    double medicareDeduction = (MEDICARE_PERCENT / 100) * grossPay;
+    double deductions =
+      federalDeduction + stateDeduction + ssDeduction + medicareDeduction;
 
-        System.out.println("Gross Pay:\t\t\t" + grossPay);
-        System.out.println("Net Pay:\t\t\t" + netPay + "\n\nDeductions");
-        System.out.println("Federal:\t\t\t" + federalDeduction);
-        System.out.println("state:\t\t\t\t" + stateDeduction);
-        System.out.println("Social Security:\t" + ssDeduction);
-        System.out.println("Medicare:\t\t\t" + medicareDeduction);
-    }
+    netPay = grossPay - deductions;
+
+    System.out.println("Gross Pay:\t\t\t" + grossPay);
+    System.out.println("Net Pay:\t\t\t" + netPay + "\n\nDeductions");
+    System.out.println("Federal:\t\t\t" + federalDeduction);
+    System.out.println("state:\t\t\t\t" + stateDeduction);
+    System.out.println("Social Security:\t" + ssDeduction);
+    System.out.println("Medicare:\t\t\t" + medicareDeduction);
+  }
 }
