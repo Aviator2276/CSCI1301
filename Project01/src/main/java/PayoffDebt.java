@@ -16,14 +16,19 @@ public class PayoffDebt {
         System.out.print("Monthly Payment:\t\t\t");
         monthlyPayment = input.nextDouble();
         input.close();
-
     }
 
-    public int calculatePayoffPeriod(double principal, double apr, double monthlyPayment) {
+    public int calculatePayoffPeriod(
+            double principal,
+            double apr,
+            double monthlyPayment
+    ) {
         double months = Math.ceil(
-                Math.log(monthlyPayment) - Math.log(monthlyPayment - ((apr / 1200.0) * principal) /
-                        Math.log((apr / 1200.0) + 1.0)
-                )
+                Math.log(monthlyPayment) -
+                        Math.log(
+                                monthlyPayment -
+                                        ((apr / 1200.0) * principal) / Math.log((apr / 1200.0) + 1.0)
+                        )
         );
         return (int) months;
     }
